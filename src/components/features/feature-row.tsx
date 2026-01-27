@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
@@ -158,3 +158,4 @@ function TrashIcon({ className }: { className?: string }) {
       />
     </svg>
   );
+}
