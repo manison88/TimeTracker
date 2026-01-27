@@ -1,0 +1,10 @@
+name = "timetracker"
+compatibility_date = "2024-07-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "timetracker-db"
+database_id = "78059811-6724-415c-a37b-2acf9a073810"
+migrations_dir = "prisma/migrations"

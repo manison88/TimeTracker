@@ -1,0 +1,44 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Next.js
+.next
+out
+build
+
+# Cloudflare
+.vercel
+.wrangler
+.dev.vars
+
+# Database
+*.db
+*.db-journal
+prisma/*.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

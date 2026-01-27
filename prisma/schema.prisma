@@ -1,0 +1,85 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  password      String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  projects     Project[]
+  timeEntries  TimeEntry[]
+  runningTimer RunningTimer?
+}
+
+model Project {
+  id          String    @id @default(cuid())
+  userId      String
+  name        String
+  description String?
+  iconUrl     String?
+  status      String    @default("active") // active, completed, on_break, discontinued
+  endReason   String?
+  endedAt     DateTime?
+  archived    Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  features Feature[]
+
+  @@index([userId])
+}
+
+model Feature {
+  id          String   @id @default(cuid())
+  projectId   String
+  name        String
+  description String?
+  status      String   @default("active")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  project      Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  timeEntries  TimeEntry[]
+  runningTimer RunningTimer?
+
+  @@index([projectId])
+}
+
+model TimeEntry {
+  id              String    @id @default(cuid())
+  featureId       String
+  userId          String
+  startTime       DateTime
+  endTime         DateTime?
+  durationSeconds Int?
+  notes           String?
+  createdAt       DateTime  @default(now())
+
+  feature Feature @relation(fields: [featureId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([featureId])
+  @@index([userId])
+}
+
+model RunningTimer {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  featureId   String   @unique
+  timeEntryId String   @unique
+  startedAt   DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  feature Feature @relation(fields: [featureId], references: [id], onDelete: Cascade)
+}

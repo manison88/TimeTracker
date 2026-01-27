@@ -1,0 +1,58 @@
+{
+  "name": "timetracker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-date=2024-07-01 --compatibility-flag=nodejs_compat",
+    "pages:deploy": "npm run pages:build && npx wrangler pages deploy .vercel/output/static --project-name=timetracker",
+    "d1:migrate": "wrangler d1 migrations apply timetracker-db --local",
+    "d1:migrate:prod": "wrangler d1 migrations apply timetracker-db --remote"
+  },
+  "dependencies": {
+    "@auth/core": "^0.37.2",
+    "@auth/prisma-adapter": "^2.7.4",
+    "@prisma/adapter-d1": "^6.2.1",
+    "@prisma/client": "^6.2.1",
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.1.1",
+    "next": "15.1.6",
+    "next-auth": "^5.0.0-beta.25",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.6.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.7",
+    "@cloudflare/workers-types": "^4.20250121.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.10.7",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "15.1.6",
+    "postcss": "^8.4.49",
+    "prisma": "^6.2.1",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8",
+    "wrangler": "^3.101.0"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
+}
