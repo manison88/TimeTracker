@@ -5,8 +5,13 @@ const nextConfig = {
       bodySizeLimit: "2mb",
     },
   },
-  // Exclude @cloudflare packages from server components in dev
-  serverExternalPackages: ["@prisma/adapter-d1", "@cloudflare/next-on-pages"],
+  // Exclude packages from server bundle to reduce size
+  serverExternalPackages: [
+    "@prisma/adapter-d1",
+    "@cloudflare/next-on-pages",
+    "@prisma/client",
+    "bcryptjs",
+  ],
 };
 
 export default nextConfig;
