@@ -9,6 +9,11 @@ declare global {
   }
 }
 
-export interface CloudflareEnv {
-  DB: D1Database;
+// Declare the CloudflareEnv inside the @cloudflare/next-on-pages module
+declare module "@cloudflare/next-on-pages" {
+  interface CloudflareEnv {
+    DB: D1Database;
+  }
 }
+
+export {};
