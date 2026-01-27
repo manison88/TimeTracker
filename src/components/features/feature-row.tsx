@@ -13,6 +13,7 @@ import type { FeatureSummary } from "@/types";
 interface FeatureRowProps {
   feature: FeatureSummary;
 }
+type FeatureStatus = "active" | "paused" | "completed";
 
 export function FeatureRow({ feature }: FeatureRowProps) {
   const router = useRouter();
@@ -30,7 +31,7 @@ export function FeatureRow({ feature }: FeatureRowProps) {
     });
   };
 
-  const handleStatusChange = (status: string) => {
+  const handleStatusChange = (status: FeatureStatus) => {
     startTransition(async () => {
       await updateFeature(feature.id, { status });
       router.refresh();
