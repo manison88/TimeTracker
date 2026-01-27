@@ -1,18 +1,9 @@
 /// <reference types="@cloudflare/workers-types" />
 
-declare global {
-  namespace NodeJS {
-    interface ProcessEnv {
-      AUTH_SECRET: string;
-      DATABASE_URL?: string;
-    }
-  }
-}
+export {};
 
-declare module "@cloudflare/next-on-pages" {
+declare global {
   interface CloudflareEnv {
     DB: D1Database;
   }
 }
-
-export {};
