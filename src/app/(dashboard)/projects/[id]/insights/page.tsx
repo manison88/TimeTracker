@@ -6,8 +6,7 @@ import { TimeDisplay } from "@/components/timer/time-display";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-// Use edge runtime only in production (Cloudflare)
-// export const runtime = "edge";
+export const runtime = "edge";
 
 interface InsightsPageProps {
   params: Promise<{ id: string }>;

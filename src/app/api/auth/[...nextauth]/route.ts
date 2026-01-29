@@ -1,5 +1,5 @@
 import { handlers } from "@/lib/auth";
 
-export const { GET, POST } = handlers;
+export const runtime = "edge";
 
-// Let @cloudflare/next-on-pages handle runtime conversion automatically
+export const { GET, POST } = handlers;

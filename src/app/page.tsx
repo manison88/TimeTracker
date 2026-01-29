@@ -3,6 +3,8 @@ import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+export const runtime = "edge";
+
 export default async function HomePage() {
   const session = await auth();
 

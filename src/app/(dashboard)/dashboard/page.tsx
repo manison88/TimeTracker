@@ -3,12 +3,11 @@ import { getProjects } from "@/actions/projects";
 import { ProjectList } from "@/components/projects/project-list";
 import { LoadingPage } from "@/components/ui/loading";
 
+export const runtime = "edge";
+
 export const metadata = {
   title: "Dashboard - TimeTracker",
 };
-
-// Use edge runtime only in production (Cloudflare)
-// export const runtime = "edge";
 
 async function ProjectsContainer() {
   const projects = await getProjects();
