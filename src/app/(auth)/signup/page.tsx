@@ -6,6 +6,9 @@ export const metadata = {
   title: "Sign Up - TimeTracker",
 };
 
+// Configure Edge Runtime for Cloudflare Pages
+export const runtime = 'edge';
+
 export default async function SignUpPage() {
   const session = await auth();
 
