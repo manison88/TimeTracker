@@ -5,8 +5,8 @@ import { FeatureList } from "@/components/features/feature-list";
 import { ProjectHeader } from "@/components/projects/project-header";
 import type { FeatureSummary } from "@/types";
 
-// Use edge runtime only in production (Cloudflare)
-// export const runtime = "edge";
+// Configure Edge Runtime for Cloudflare Pages
+export const runtime = 'edge';
 
 interface ProjectPageProps {
   params: Promise<{ id: string }>;

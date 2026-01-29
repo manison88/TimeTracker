@@ -3,6 +3,9 @@ import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+// Configure Edge Runtime for Cloudflare Pages
+export const runtime = 'edge';
+
 export default async function HomePage() {
   const session = await auth();
 

@@ -7,8 +7,8 @@ export const metadata = {
   title: "Dashboard - TimeTracker",
 };
 
-// Use edge runtime only in production (Cloudflare)
-// export const runtime = "edge";
+// Configure Edge Runtime for Cloudflare Pages
+export const runtime = 'edge';
 
 async function ProjectsContainer() {
   const projects = await getProjects();
