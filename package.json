@@ -16,7 +16,7 @@
     "db:studio": "prisma studio",
     "pages:build": "npx @cloudflare/next-on-pages",
     "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-date=2024-07-01 --compatibility-flag=nodejs_compat",
-    "pages:deploy": "npm run pages:build && npx wrangler pages deploy .vercel/output/static --project-name=timetracker",
+    "pages:deploy": "npm run pages:build && npx wrangler pages deploy .vercel/output/static --project-name=timetracker5",
     "d1:migrate": "wrangler d1 migrations apply timetracker-db --local",
     "d1:migrate:prod": "wrangler d1 migrations apply timetracker-db --remote"
   },
